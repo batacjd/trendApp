@@ -1,0 +1,63 @@
+@CHARSET "ISO-8859-1";
+
+/*set footer at bottom*/
+[data-role=page]{height: 100% !important; position:relative !important;}
+[data-role=footer]{bottom:0; position:fixed !important; top: auto !important; width:100%;}
+
+/* info button override */
+
+.ui-icon-food {
+	background: url("/trendApp/Images/Glyphish Pro/icons/125-food@2x.png"); 
+	background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
+.ui-icon-homesmallw {
+	background: url("/trendApp/Images/Glyphish Pro/icons/53-house@2x-w.png"); 
+	background-size: 25px 25px;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
+.ui-icon-starlargew {
+	background: url("/trendApp/Images/Glyphish Pro/icons/28-star@2x-w.png"); 
+	background-size: 25px 25px;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
+.ui-icon-magnilargew {
+	background: url("/trendApp/Images/Glyphish Pro/icons/06-magnify@2x-w.png"); 
+	background-size: 25px 25px;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
+.ui-icon-chartlargew {
+	background: url("/trendApp/Images/Glyphish Pro/icons/16-line-chart@2x-w.png"); 
+	background-size: 25px 25px;
+    width: 25px;
+    height: 25px;
+    margin-top: 10px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
