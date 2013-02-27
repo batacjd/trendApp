@@ -11,9 +11,12 @@ class Base_login extends CI_Controller {
 		if($this->session->userdata('logged_in')){
 			redirect('home');
 		}
-		$this->load->model('signup_model');
-		$usernames['usernames'] = $this->signup_model->get_usernames();
-		$this->load->view('base_login-view', $usernames);
+		
+		$this->load->model('foursquare_model');
+		
+		$res = $this->foursquare_model->get_venues(1);
+		
+		$this->load->view('base_login-view', $res);
 	}
 	
 	public function do_login() {

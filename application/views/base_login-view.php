@@ -11,6 +11,7 @@
     <form method="post" action="<?php echo site_url('base_login/do_login') ?>" data-ajax="false"> <!--  -->
     <?php //echo form_open('base_login/do_login'); ?>
         <p align="center">Welcome to <b>trendApp</b>!</p>
+        
         <label for="basic">Username:</label>
 		<input type="text" name="username" value="<?php echo set_value('username'); ?>"/>
 		<label for="basic">Password:</label>
@@ -31,7 +32,18 @@
 	<?php //echo form_close(); ?>
 		<center><a href="#">Learn more about trendApp</a>
 		</center>
+		<?php  echo "========"?>
+	<?php 
 		
+		//print_r($res);
+		//echo curl_error($curlhandle);
+		
+		foreach ($res->response->venues as $v) {
+			echo $v->name."<br />";
+		}
+		
+		
+		?>
 	
     </div><!-- /content -->
     
