@@ -12,11 +12,11 @@ class Base_login extends CI_Controller {
 			redirect('home');
 		}
 		
-		$this->load->model('foursquare_model');
+		//$this->load->model('foursquare_model');
 		
-		$res = $this->foursquare_model->get_venues(1);
+		//$res = $this->foursquare_model->get_venues(1);
 		
-		$this->load->view('base_login-view', $res);
+		$this->load->view('base_login-view');
 	}
 	
 	public function do_login() {

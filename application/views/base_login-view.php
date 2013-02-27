@@ -37,11 +37,11 @@
 		
 		//print_r($res);
 		//echo curl_error($curlhandle);
-		
+		/*
 		foreach ($res->response->venues as $v) {
 			echo $v->name."<br />";
 		}
-		
+		*/
 		
 		?>
 	

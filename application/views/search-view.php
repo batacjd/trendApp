@@ -10,7 +10,7 @@
     <br/>
     	<ul data-role="listview" data-theme="a">
 			<li data-role="divider" data-theme="b">Select category</li>
-			<li><a href="#">Food and Restaurant</a></li>
+			<li><a href="search/lists/1">Food and Restaurant</a></li>
 			<li><a href="#">Clothing and Fashion</a></li>
 			<li><a href="#">Beauty and Spas</a></li>
 			<li><a href="#">Nightlife</a></li>

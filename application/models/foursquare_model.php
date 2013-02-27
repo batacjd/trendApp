@@ -13,7 +13,7 @@ class Foursquare_model extends CI_Model {
 		
 		$curlhandle = curl_init();
 		curl_setopt($curlhandle, CURLOPT_URL, $url);
-		curl_setopt($curlhandle, CURLOPT_PROXY, "superproxy.upd.edu.ph:8080");
+		//curl_setopt($curlhandle, CURLOPT_PROXY, "superproxy.upd.edu.ph:8080");
 		curl_setopt($curlhandle, CURLOPT_SSL_VERIFYHOST, 0);
 		curl_setopt($curlhandle, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt($curlhandle, CURLOPT_RETURNTRANSFER, TRUE);
@@ -30,11 +30,19 @@ class Foursquare_model extends CI_Model {
 		//concatenate keywords separated by ','
 		//return as query
 		
-		$this->db->where('categoryid',$category_id);
-		$result = $this->db->get('keywords');
+		$sql = $this->db->query('select keyword from keywords where categoryid='.$category_id);
+		$result = $sql->result();
 		
-		$query = 'donut,chicken';
+		$string = '';
+		
+		foreach($result as $res){
+			$string = $string.",".$res->keyword;
+		}
+		
+		$query = trim($string,",");
+		
 		return $query;
+		
 	}
 	
 	function make_URL($data) {
