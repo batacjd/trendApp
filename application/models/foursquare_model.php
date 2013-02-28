@@ -6,14 +6,14 @@ class Foursquare_model extends CI_Model {
 		parent::__construct();
 	}
 	
-	function get_venues($category_id) {
+	function get_venues($category_id,$q) {
 		$userInfo['lat'] = 14.676041;
 		$userInfo['long'] = 121.0437;
-		$url = $this->get_URL($category_id, $userInfo);
+		$url = $this->get_URL($category_id,$userInfo,$q);
 		
 		$curlhandle = curl_init();
 		curl_setopt($curlhandle, CURLOPT_URL, $url);
-		//curl_setopt($curlhandle, CURLOPT_PROXY, "superproxy.upd.edu.ph:8080");
+		curl_setopt($curlhandle, CURLOPT_PROXY, "superproxy.upd.edu.ph:8080");
 		curl_setopt($curlhandle, CURLOPT_SSL_VERIFYHOST, 0);
 		curl_setopt($curlhandle, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt($curlhandle, CURLOPT_RETURNTRANSFER, TRUE);
@@ -50,14 +50,23 @@ class Foursquare_model extends CI_Model {
 		return $url;
 	}
 	
-	function get_URL($category_id,$userInfo) {
+	function make_search_URL($data) {
+		$url = "https://api.foursquare.com/v2/venues/search?ll=".$data['lat'].",".$data['long']."&radius=".$data['radius']."&query=".$data['query']."&client_id=".$data['client_id']."&client_secret=".$data['client_secret']."&v=20130127";
+		return $url;
+	}
+	
+	function get_URL($category_id,$userInfo,$q) {
 		$data['lat'] = $userInfo['lat'];
 		$data['long'] = $userInfo['long'];
-		$data['radius'] = 2000;
+		$data['radius'] = 10000;
 		$data['client_id'] = 'UTPIKM2JG0FWXKTYLBVBF5545FOMEQ03EHCXAP2WBCMZLL1N';
 		$data['client_secret'] = 'MWC2ETPU3ED5QDKUMUSF3YORKO5GM4YYZ1R1NH2L11B5ONIX';
 		
 		switch($category_id) {
+			
+			//general search
+			case 0: $data['query'] = $q;
+					$url = $this->make_search_URL($data);
 			//food and restaurants
 			case 1: $data['categoryid'] = '4d4b7105d754a06374d81259,4bf58dd8d48988d1f9941735';
 					$data['query'] = $this->get_query($category_id);

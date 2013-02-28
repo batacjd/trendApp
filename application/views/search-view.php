@@ -23,14 +23,17 @@
 			<li data-role="divider" data-theme="b">or search</li>
 		</ul>
 		<br/>
+		<form method="post" action="search/custom_search" data-ajax="false">
 		<table width="100%">
 		<col width="90%">
 		<col width="10%">
 			<tr>
-				<td><input type="text" name="username" id="username" /></td>
-				<td><center><a href="#" data-role="button" data-icon="search" data-iconpos="notext" data-theme="b">Search</a></center></td>
+				<td><input type="text" name="search" /></td>
+				<td><center><input type="submit" data-icon="search" data-iconpos="notext" data-theme="b"></center></td>
 			</tr>
 		</table>
+		
+		</form>
 		<br/>
 		<br/>
     

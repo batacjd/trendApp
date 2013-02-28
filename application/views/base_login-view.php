@@ -29,21 +29,8 @@
 		<br/>
 		<br/>
 	</form><!-- end form -->
-	<?php //echo form_close(); ?>
 		<center><a href="#">Learn more about trendApp</a>
 		</center>
-		<?php  echo "========"?>
-	<?php 
-		
-		//print_r($res);
-		//echo curl_error($curlhandle);
-		/*
-		foreach ($res->response->venues as $v) {
-			echo $v->name."<br />";
-		}
-		*/
-		
-		?>
 	
     </div><!-- /content -->
     
