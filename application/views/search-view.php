@@ -6,19 +6,19 @@
 		<?php $this->load->view('navbar.php')?>
     </div><!-- /header -->
     
-    <div data-role="content">
-    <br/>
+    <div data-role="content" >
+    	
     	<ul data-role="listview" data-theme="a">
 			<li data-role="divider" data-theme="b">Select category</li>
 			<li><a href="search/lists/1">Food and Restaurant</a></li>
-			<li><a href="#">Clothing and Fashion</a></li>
-			<li><a href="#">Beauty and Spas</a></li>
-			<li><a href="#">Nightlife</a></li>
-			<li><a href="#">Hotels and Resorts</a></li>
-			<li><a href="#">Arts and Entertainment</a></li>
-			<li><a href="#">Sports Centers</a></li>
-			<li><a href="#">Schools</a></li>
-			<li><a href="#">Health and Medical</a></li>
+			<li><a href="search/lists/2">Clothing and Fashion</a></li>
+			<li><a href="search/lists/3">Beauty and Spas</a></li>
+			<li><a href="search/lists/4">Arts and Entertainment</a></li>
+			<li><a href="search/lists/5">Hotels and Resorts</a></li>
+			<li><a href="search/lists/6">Nightlife</a></li>
+			<li><a href="search/lists/7">Sports Centers</a></li>
+			<li><a href="search/lists/8">Schools</a></li>
+			<li><a href="search/lists/9">Health and Medical</a></li>
 			<li></li>
 			<li data-role="divider" data-theme="b">or search</li>
 		</ul>
@@ -32,7 +32,6 @@
 				<td><center><input type="submit" data-icon="search" data-iconpos="notext" data-theme="b"></center></td>
 			</tr>
 		</table>
-		
 		</form>
 		<br/>
 		<br/>

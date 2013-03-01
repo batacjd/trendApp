@@ -10,20 +10,32 @@
     <br/>
     <ul data-role="listview" data-theme="a">
     <?php 
-		
-		foreach ($res->response->venues as $v) {
-			//echo $v->name."<br />";
-			$address = '';
-			if(array_key_exists('address', $v->location)){
-				$address = $v->location->address;
-			}else{
-				$address = '<br />';
-			}
-			
-			echo '<li data-icon="food" class="ui-btn-icon-left"><a href="#" style="padding-left: 80px"><h3>'.$v->name.'</h3><p>'.$address.'</p></a></li>';
-			
-		}
-		
+    
+    	if(isset($res->response->venues)){
+			if(count($res->response->venues) > 0){
+		 		foreach ($res->response->venues as $v) {
+
+					$address = '';
+					if(array_key_exists('address', $v->location)){
+						$address = $v->location->address;
+					}else{
+						$address = '<br />';
+					}
+					$icon = '';
+					if ($v->icon == ''){
+						$icon = 'default';
+					}else {
+						$icon = $v->icon;
+					}
+					echo '<li data-icon="'.$icon.'" class="ui-btn-icon-left"><a href="'.site_url('search/selected?name='.$v->name.'&lat='.$v->location->lat.'&lng='.$v->location->lng.'&distance='.$v->location->distance.'&address='.$address).'" style="padding-left: 80px"><h3>'.$v->name.'</h3><p>'.$address.'</p></a></li>';
+				}
+		  }else{
+		    	echo 'No entries matched your query :(';
+		  }
+    	}else{
+    		echo 'No entries matched your query :(';
+    	}
+    	
 	?>
     </ul>
 	</div>

@@ -14,12 +14,9 @@
 				<td><img src="/trendApp/Images/default_avatar.png" alt="icon"></td>
 				<td style="padding-left: 10px">
 					Hi <?php echo $givenname.' '.$lastname?>!
-					<div id="lat_home"></div>
 				</td>
 			</tr>
 			</table>
-			<!-- <button id="btnInit">Find Location</button>  -->
-			
 		</div>
 		<br/>
 		<p>Recommended for you</p>

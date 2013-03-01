@@ -12,24 +12,40 @@ class Search extends CI_Controller {
 	
 	public function lists($i){
 		
-		//$i = $this->input->get('var1');
 		$c = 1;
+		$lat = $_COOKIE['lat'];
+		$lng = $_COOKIE['lng'];
+		
 		$this->load->model('foursquare_model');
-		switch($i){
-			case 1: $res = $this->foursquare_model->get_venues($i,'');
-					$this->load->view('search_list_results-view', $res);
-		};
+		
+		$res = $this->foursquare_model->get_venues($i,'',$lat,$lng);
+		$this->load->view('search_list_results-view', $res);
+
 	}
 	
 	public function custom_search() {
 		
+		$c = 0;
+		
 		$query = $this->input->post('search');
+		$lat = $_COOKIE['lat'];
+		$lng = $_COOKIE['lng'];
 		$str = urlencode($query);
 		
 		$this->load->model('foursquare_model');
-		$res = $this->foursquare_model->get_venues(0,$str);
+		$res = $this->foursquare_model->get_venues($c,$str,$lat,$lng);
+		$this->load->view('search_list_results-view',$res);
+	}
+	
+	public function selected() {
 		
-		$this->load->view('search_results-view',$res);
+		$data['name'] = $this->input->get('name');
+		$data['lat'] = $this->input->get('lat');
+		$data['lng'] = $this->input->get('lng');
+		$data['distance'] = $this->input->get('distance');
+		$data['address'] = $this->input->get('address');
+		
+		$this->load->view('show_selected-view',$data);
 	}
 	
 }

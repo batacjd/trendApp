@@ -6,8 +6,107 @@
 
 /* info button override */
 
+.ui-icon-default {
+	background: url("/trendApp/Images/Glyphish Pro/icons2/default.png"); 
+	background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
 .ui-icon-food {
-	background: url("/trendApp/Images/Glyphish Pro/icons/125-food@2x.png"); 
+	background: url("/trendApp/Images/Glyphish Pro/icons2/125-food@2x.png"); 
+	background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
+.ui-icon-shirt {
+	background: url("/trendApp/Images/Glyphish Pro/icons2/67-shirt@2x.png"); 
+	background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
+.ui-icon-bfly {
+	background: url("/trendApp/Images/Glyphish Pro/icons2/170-butterfly@2x.png"); 
+	background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
+.ui-icon-cocktail {
+	background: url("/trendApp/Images/Glyphish Pro/icons2/144-martini@2x.png"); 
+	background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
+.ui-icon-bldg {
+	background: url("/trendApp/Images/Glyphish Pro/icons2/177-building@2x.png"); 
+	background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
+.ui-icon-tv {
+	background: url("/trendApp/Images/Glyphish Pro/icons2/70-tv@2x.png"); 
+	background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
+.ui-icon-run {
+	background: url("/trendApp/Images/Glyphish Pro/icons2/63-runner@2x.png"); 
+	background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
+.ui-icon-toga {
+	background: url("/trendApp/Images/Glyphish Pro/icons2/140-gradhat@2x.png"); 
+	background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px !important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 1px;
+}
+
+.ui-icon-health {
+	background: url("/trendApp/Images/Glyphish Pro/icons2/10-medical@2x.png"); 
 	background-size: 50px 50px;
     width: 50px;
     height: 50px;
