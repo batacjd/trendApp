@@ -14,6 +14,13 @@ class Home extends CI_Controller {
 		
 		$data['givenname'] = $this->session->userdata('givenname');
 		$data['lastname'] = $this->session->userdata('lastname');
+		
+		if($this->session->userdata('isSuperuser')){
+			$data['superuser'] = 'true';
+		}else{
+			$data['superuser'] = 'false';
+		}
+			 
 		$this->load->view('home-view', $data);
 	}
 	

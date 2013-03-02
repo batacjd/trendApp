@@ -35,6 +35,20 @@ class Units_model extends CI_Model {
 		$this->db->insert('units', $insertUnit);
 	}
 	
+	public function insert_unit_promo_event($data){
+		//Insert promo and event to units table
+		$insertPE = array(
+			'promoeventname' => $data['name'],
+			'unitid' =>$data['unitid'],
+			'unittypeid' => $data['unittypeid'],
+			'superuserid' => $this->session->userdata('superuserid'),
+			'startdate' => $data['startdate'],
+			'enddate' => $data['enddate'],
+			'mechanics' => $data['mechanics']
+		);
+		$this->db->insert('promoevents', $insertPE);
+	}
+	
 	public function get_ratings_by_unitid($unitid) {
 		//Get the ratings by unitid
 		$sql = 'select rating from ratings where unitid=\''.$unitid.'\'';

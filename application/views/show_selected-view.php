@@ -39,9 +39,21 @@
 	    <?php 
 	    	$distance = ($distance/1000);
 	    	echo '<h1>'.$name.'</h1>';
+	    	if($this->session->userdata('isSuperuser')){
+	    		echo '<a href="#popupManage" data-rel="popup" data-mini="true" data-inline="true" data-theme="c" class="smallBtn">Manage</a>';
+	    	}
 	    	if($distance != '') echo '<p>Distance: '.$distance.' km</p>';
 	    	if($address != '') echo '<p>Address: '.$address.'</p>';
 	    ?>
+	    
+	    <div data-role="popup" id="popupManage">
+			<ul data-role="listview" data-theme="a">
+				<li><a href="<?php echo site_url('manage/promo?name='.$name.'&lat='.$lat.'&lng='.$lng.'&address='.$address.'&icon='.$icon.'&id='.$id)?>">Add Promo</a></li>
+				<li><a href="<?php echo site_url('manage/event?name='.$name.'&lat='.$lat.'&lng='.$lng.'&address='.$address.'&icon='.$icon.'&id='.$id)?>">Add Event</a></li>
+			
+			</ul>
+		</div>
+	    
 	    <p>Rating:
 	    <?php 
 			if (count($rating) > 0){

@@ -42,8 +42,11 @@
 	
 	#lat {display: none}
 	#lng {display: none}
-	
+	#mUnitid {display: none}
+	.smallBtn { height: 18px; font-size: 10px; margin-top: -5px }
+	.smallBtn .ui-btn-inner { margin-top: -7px }
 
+	.ui-content { padding: 15px; font-size: 14px }
       </style>
 	
 </head> 
