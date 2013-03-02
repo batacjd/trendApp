@@ -17,10 +17,12 @@
 	<script src="/trendApp/scripts/load_coordinates.js"></script>
 	
 	<style>
-	.ui-bar { font-size: 14px; padding: 10px; }
-	.ui-bar h1, .ui-bar h2, .ui-bar h3, .ui-bar h4, .ui-bar h5, .ui-bar h6 { margin: 0; padding: 0; font-size: 20px; display: inline-block; }
-	.ui-bar p { margin-bottom: 3px}
+	.ui-bar { font-size: 12px; padding: 10px; }
+	.ui-bar h1 { margin: 3px; padding: 0; font-size: 16px; display: inline-block; }
+	.ui-bar h2, .ui-bar h3, .ui-bar h4, .ui-bar h5, .ui-bar h6 { margin: 0; padding: 0; font-size: 16px; display: inline-block; }
+	.ui-bar p { font-size: 12px; margin: 3px }
 	.ui-page {background: white}
+	.listview li { font-size: 12px; font-weight: normal; }
 	#map_home { 
 		background: #e0e0e0;
         border: 1px solid rgba(255, 255, 255, 0.1);

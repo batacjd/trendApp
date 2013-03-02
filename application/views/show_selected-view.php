@@ -1,6 +1,6 @@
 <?php $this->load->view('header')?>
 
-<div id="showresult" data-role="page">
+<div data-role="page">
 <script>
 
 	function create_map()
@@ -42,21 +42,37 @@
 	    	if($distance != '') echo '<p>Distance: '.$distance.' km</p>';
 	    	if($address != '') echo '<p>Address: '.$address.'</p>';
 	    ?>
-	    <p>Rating: </p>
+	    <p>Rating:
+	    <?php 
+			if (count($rating) > 0){
+				if(count($rating[0]['rating']) != ''){
+					echo $rating[0]['rating'];
+				}
+				else{
+					echo 'This has not been rated yet.';
+				}
+			}else{
+				echo 'This has not been rated yet.';
+			}
+		?></p>
 	    <!-- <div data-role="controlgroup" data-type="horizontal"> -->
 	    	
 		</div>
 		
 		<input type="text" id="lat" value="<?php echo $lat;?>">
 		<input type="text" id="lng" value="<?php echo $lng;?>">
+		
+		<!-- <center><a href="#" id="showmap">Show map</a></center> -->
+		<div class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal" style="font-size: 0.5em; margin-left: auto; margin-right: auto; width: 100%;" data-type="horizontal" data-role="controlgroup">
+		    <a data-role="button" data-theme="a" data-mini="true" data-inline="true" id="showmap">Map</a>
+			<a data-role="button" data-theme="a" data-mini="true" data-inline="true" >Rate</a>
+		    <a href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=1'?>" data-role="button" data-theme="a" data-mini="true" data-inline="true" data-ajax="false">1</a>
+		    <a href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=2'?>" data-role="button" data-theme="a" data-mini="true" data-inline="true">2</a>
+		    <a href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=3'?>" data-role="button" data-theme="a" data-mini="true" data-inline="true">3</a>
+		    <a href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=4'?>" data-role="button" data-theme="a" data-mini="true" data-inline="true">4</a>
+		</div>
 		<div id="select_result_map"></div>
-		<center><a href="#" id="showmap">Show map</a></center>
-		<div class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal" style="font-size: 0.7em; margin-left: auto; margin-right: auto; width: 100%; text-align: center;" data-type="horizontal" data-role="controlgroup">
-		    <a href="#" data-role="button" data-theme="b" data-icon="refresh" data-iconpos="notext" >1</a>
-		    <a href="#" data-role="button" data-theme="b" data-icon="refresh" data-iconpos="notext" >2</a>
-		    <a href="#" data-role="button" data-theme="b" data-icon="refresh" data-iconpos="notext" >3</a>
-		    <a href="#" data-role="button" data-theme="b" data-icon="refresh" data-iconpos="notext" >4</a>
-			</div>
+		
     </div>
     
 </div>

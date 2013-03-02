@@ -12,9 +12,9 @@
 
 <div data-role="navbar">
 	<ul>
-		<li><a href="<?php echo site_url("home")?>" data-theme="d" data-icon="homesmallw">&nbsp;</a></li>
-		<li><a href="<?php echo site_url("favorites")?>" data-theme="d" data-icon="starlargew">&nbsp;</a></li>
-		<li><a href="<?php echo site_url("search")?>" data-theme="d" data-icon="magnilargew">&nbsp;</a></li>
+		<li><a href="<?php echo site_url("home")?>" data-theme="d" data-icon="homesmallw" data-mini="true">&nbsp;</a></li>
+		<li><a href="<?php echo site_url("favorites")?>" data-theme="d" data-icon="starlargew" data-mini="true">&nbsp;</a></li>
+		<li><a href="<?php echo site_url("search")?>" data-theme="d" data-icon="magnilargew" data-mini="true">&nbsp;</a></li>
 		<li><a href="#" data-theme="d" data-icon="chartlargew">&nbsp;</a></li>
 	</ul>
 </div><!-- /navbar -->
