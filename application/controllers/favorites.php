@@ -7,10 +7,13 @@ class Favorites extends CI_Controller {
 	}
 	
 	function index() {
-		$data['givenname'] = $this->session->userdata('givenname');
-		$data['lastname'] = $this->session->userdata('lastname');
 		
-		$this->load->view('fave-view');
+		$this->load->model('units_model');
+		
+		$userid = $this->session->userdata('userid');
+		$res['res'] = $this->units_model->user_ratings_by_userid($userid);
+		
+		$this->load->view('fave-view',$res);
 	}
 	
 }

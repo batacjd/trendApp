@@ -6,6 +6,23 @@ class Manage extends CI_Controller {
 		parent::__construct();
 	}
 	
+	public function show_list(){
+		
+		$this->load->model('units_model');
+		
+		$superuserid = $this->session->userdata('superuserid');
+		$res['res'] = $this->units_model->get_promo_event_by_superuserid($superuserid);
+		$this->load->view('manage_list-view', $res);
+	}
+	
+	public function delete($pid){
+		
+		$this->load->model('units_model');
+		$this->units_model->delete_promo_event_by_promoeventid($pid);
+		$this->show_list();
+		
+	}
+	
 	public function promo(){
 		//Add unit to database if it wasn't added yet.
 		//This step is necessary
@@ -13,32 +30,34 @@ class Manage extends CI_Controller {
 
 		$this->load->model('units_model');
 		
-		$data['unitname'] = $this->input->get('name');
-		$data['categoryid'] = $this->input->get('icon');
+		$data['name'] = $this->input->get('name');
+		$data['icon'] = $this->input->get('icon');
 		$data['lat'] = $this->input->get('lat');
 		$data['lng'] = $this->input->get('lng');
-		$data['venueid'] = $this->input->get('id');
+		$data['id'] = $this->input->get('id');
 		$data['address'] = $this->input->get('address');
 		
 		//Check if unit exists
-		/*
-		if($data['unitname'] != ''){
-			$result = $this->units_model->get_unitid_by_venueid($data['venueid']);
+		
+		if($data['icon'] != ''){
+			$result = $this->units_model->get_unitid_by_venueid($data['id']);
+			
 			if(count($result) == 0){
 				//No record yet. Insert unit to database
 				$this->units_model->insert_unit($data);
 			}
 			
 			//Get unitid again for the newly inserted rows
-			$result = $this->units_model->get_unitid_by_venueid($data['venueid']);
-			$unitid['unitid'] = $result[0]['unitid'];
+			$result = $this->units_model->get_unitid_by_venueid($data['id']);
+			$data['unitid'] = $result[0]['unitid'];
 			
 		}else{
-			$unitid['unitid'] = $this->input->get('id');
+			$data['name'] = $this->input->get('name');
+			$data['unitid'] = $this->input->get('unitid');
 		}
-		*/
 		
-		$this->load->view('manage_promo-view',$unitid,$data);
+		
+		$this->load->view('manage_promo-view',$data);
 		
 	}
 	
@@ -50,7 +69,9 @@ class Manage extends CI_Controller {
 		
 		if ($this->form_validation->run() == FALSE) {
 			$unitid = $this->input->post('unitid');
-			redirect(site_url('manage/promo?id='.$unitid));
+			$unitname = $this->input->post('unitname');
+			$address = $this->input->post('address');
+			redirect(site_url('manage/promo?unitid='.$unitid.'&name='.$unitname.'&address='.$address));
 		}else{
 			
 			$data['name'] = $this->input->post('promoName');
@@ -85,31 +106,32 @@ class Manage extends CI_Controller {
 
 		$this->load->model('units_model');
 		
-		$data['unitname'] = $this->input->get('name');
-		$data['categoryid'] = $this->input->get('icon');
+		$data['name'] = $this->input->get('name');
+		$data['icon'] = $this->input->get('icon');
 		$data['lat'] = $this->input->get('lat');
 		$data['lng'] = $this->input->get('lng');
-		$data['venueid'] = $this->input->get('id');
+		$data['id'] = $this->input->get('id');
 		$data['address'] = $this->input->get('address');
 		
 		//Check if unit exists
-		if($data['unitname'] != ''){
-			$result = $this->units_model->get_unitid_by_venueid($data['venueid']);
+		if($data['icon'] != ''){
+			$result = $this->units_model->get_unitid_by_venueid($data['id']);
 			if(count($result) == 0){
 				//No record yet. Insert unit to database
 				$this->units_model->insert_unit($data);
 			}
 			
 			//Get unitid again for the newly inserted rows
-			$result = $this->units_model->get_unitid_by_venueid($data['venueid']);
-			$unitid['unitid'] = $result[0]['unitid'];
+			$result = $this->units_model->get_unitid_by_venueid($data['id']);
+			$data['unitid'] = $result[0]['unitid'];
 			
 		}else{
-			$unitid['unitid'] = $this->input->get('id');
+			$data['name'] = $this->input->get('name');
+			$data['unitid'] = $this->input->get('unitid');
 		}
 		
 		
-		$this->load->view('manage_event-view',$unitid,$data);
+		$this->load->view('manage_event-view',$data);
 		
 	}
 	
@@ -117,11 +139,13 @@ class Manage extends CI_Controller {
 		
 		$this->load->library('form_validation');
 		
-		$this->form_validation->set_rules('promoName','Promo name','trim|required');
+		$this->form_validation->set_rules('eventName','Promo name','trim|required');
 		
 		if ($this->form_validation->run() == FALSE) {
 			$unitid = $this->input->post('unitid');
-			redirect(site_url('manage/event?id='.$unitid));
+			$unitname = $this->input->post('unitname');
+			$address = $this->input->post('address');
+			redirect(site_url('manage/event?unitid='.$unitid.'&name='.$unitname.'&address='.$address));
 		}else{
 			
 			$data['name'] = $this->input->post('eventName');
@@ -130,7 +154,7 @@ class Manage extends CI_Controller {
 			
 			$startm = $this->input->post('start-month');
 			$startd = $this->input->post('start-day');
-			$starty = $this->input->post('start-yar');
+			$starty = $this->input->post('start-year');
 			$endm = $this->input->post('end-month');
 			$endd = $this->input->post('end-day');
 			$endy = $this->input->post('end-year');

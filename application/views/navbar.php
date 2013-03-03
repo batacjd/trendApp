@@ -1,7 +1,7 @@
 
 
 <a href="<?php //redirect(current_url())?>" data-role="button" data-theme="b" data-icon="refresh" data-iconpos="notext" >Refresh</a>
-<h1>trendApp - Home</h1>
+<h2>trendApp</h2>
 <a href="#popupBasic" data-role="button" data-rel="popup" data-theme="b" data-icon="gear" data-iconpos="notext" >Account</a>
 
 <div data-role="popup" id="popupBasic">
@@ -19,7 +19,7 @@
 		<li><a href="<?php echo site_url("search")?>" data-theme="d" data-icon="magnilargew" data-mini="true">&nbsp;</a></li>
 		<?php 
 		if($this->session->userdata('isSuperuser')){
-			echo '<li><a href="#" data-theme="d" data-icon="chartlargew">&nbsp;</a></li>';
+			echo '<li><a href="'.site_url("manage/show_list").'" data-theme="d" data-icon="chartlargew">&nbsp;</a></li>';
 		}
 		?>
 	</ul>

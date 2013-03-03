@@ -7,7 +7,8 @@
     </div><!-- /header -->
     
     <div data-role="content">
-    <?php echo $unitname.'///'?>
+    <?php echo '<h2>'.$name.' (Promo)</h2> '.$address?>
+    <hr />
     <div>
     	<form method="post" action="add_promo" data-ajax="false">
     	<br /><i>Enter a promo name</i><?php echo form_error('promoName') ?>
@@ -51,6 +52,8 @@
 					        
 					    </fieldset>
 					</div>
+			<input type="text" value="<?php echo $name?>" name="unitname" id="mUnitname">
+			<input type="text" value="<?php echo $address?>" name="address" id="mAddress">
 			<input type="text" value="<?php echo $unitid?>" name="unitid" id="mUnitid">
 			<input type="submit" value="Submit">
 		</form>

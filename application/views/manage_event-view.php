@@ -7,9 +7,11 @@
     </div><!-- /header -->
     
     <div data-role="content">
+    <?php echo '<h2>'.$name.' (Event)</h2> '.$address?>
+    <hr />
     <div>
     	<form method="post" action="add_event" data-ajax="false">
-    	<br /><i>Enter a event name</i><?php echo form_error('eventName') ?>
+    	<br /><i>Enter event name</i><?php echo form_error('eventName') ?>
     	<br /><input type="text" name="eventName" data-mini="true">
     	<br /><i>Add event details:</i>
     	<br /><input type="text" name="description" data-mini="true">
@@ -50,7 +52,9 @@
 					        
 					    </fieldset>
 					</div>
-			<input type="text" value="<?php echo $unitid?>" name="unitid" id="mUnitid">
+			<input type="text" value="<?php echo $name?>" name="unitname" id="mUnitname_e">
+			<input type="text" value="<?php echo $address?>" name="address" id="mAddress_e">
+			<input type="text" value="<?php echo $unitid?>" name="unitid" id="mUnitid_e">
 			<input type="submit" value="Submit">
 		</form>
     </div>

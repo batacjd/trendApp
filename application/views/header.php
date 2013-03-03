@@ -17,12 +17,34 @@
 	<script src="/trendApp/scripts/load_coordinates.js"></script>
 	
 	<style>
-	.ui-bar { font-size: 12px; padding: 10px; }
-	.ui-bar h1 { margin: 3px; padding: 0; font-size: 16px; display: inline-block; }
-	.ui-bar h2, .ui-bar h3, .ui-bar h4, .ui-bar h5, .ui-bar h6 { margin: 0; padding: 0; font-size: 16px; display: inline-block; }
-	.ui-bar p { font-size: 12px; margin: 3px }
-	.ui-page {background: white}
-	.listview li { font-size: 12px; font-weight: normal; }
+	
+	.ui-header { font-size: 1em; weight: bold }
+	.ui-bar { font-size: 1em; padding: 10px; }
+	.ui-bar h1 { margin: 3px; padding: 0; font-size: 1.2em; display: inline-block; }
+	.ui-bar h2, .ui-bar h3, .ui-bar h4, .ui-bar h5, .ui-bar h6 { margin: 0; padding: 0; font-size: 1.2em; display: inline-block; }
+	.ui-bar p { font-size: 1em; margin: 3px; margin-top: 5px; margin-bottom: 5px }
+	.ui-page {background: #e0e0e0}
+	.ui-li { font-size: 1em; font-weight: normal;}
+	.ui-li p { font-size: .8em; font-weight: normal;}
+	.ui-listview h3 { font-size: 1em; font-weight: bold; }
+	.ui-listview h4 { font-size: 1em; font-weight: bold; margin: 0px }
+		
+	.smallBtn { height: 18px; font-size: 10px; margin-top: -5px }
+	.smallBtn .ui-btn-inner { margin-top: -7px }
+
+	.ui-content { padding: 15px; font-size: .9em }
+	.ui-content h2 { margin-bottom: 0px }
+	
+	.imgzr { width: 80%; height: auto; max-width: 400px}
+
+	@media only screen and (min-width: 1024px){
+            .ui-page {
+                width: 1024px !important;
+                margin: 0 auto !important;
+                position: relative !important;
+            }
+        }
+	
 	#map_home { 
 		background: #e0e0e0;
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -43,10 +65,13 @@
 	#lat {display: none}
 	#lng {display: none}
 	#mUnitid {display: none}
-	.smallBtn { height: 18px; font-size: 10px; margin-top: -5px }
-	.smallBtn .ui-btn-inner { margin-top: -7px }
+	#mUnitname {display: none}
+	#mAddress {display: none}
+	#mUnitid_e {display: none}
+	#mUnitname_e {display: none}
+	#mAddress_e {display: none}
 
-	.ui-content { padding: 15px; font-size: 14px }
+	
       </style>
 	
 </head> 

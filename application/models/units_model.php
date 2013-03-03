@@ -14,6 +14,14 @@ class Units_model extends CI_Model {
 		return $result->result_array();
 	}
 	
+	public function get_unit_by_unitid($unitid){
+		//Returns row of unit
+		$sql = 'select * from units where unitid=\''.$unitid.'\'';
+		$result = $this->db->query($sql);
+		
+		return $result->result_array();
+	}
+	
 	public function get_unit_rating_by_venueid($id){
 		$sql = 'select rating from units where venueid=\''.$id.'\'';
 		$result = $this->db->query($sql);
@@ -93,4 +101,42 @@ class Units_model extends CI_Model {
 		
 	}
 	
+	public function get_promo_event($categoryid,$unittypeid) {
+		
+		$sql = 'select * from units U, promoevents P where U.unitid=P.unitid and U.categoryid=\''.$categoryid.'\' and P.unittypeid=\''.$unittypeid.'\'';
+		$result = $this->db->query($sql);
+		
+		return $result->result_array();
+	}
+	
+	public function get_promo_event_by_promoeventid($promoeventid){
+		$sql = 'select * from units U, promoevents P where U.unitid=P.unitid and P.promoeventid=\''.$promoeventid.'\'';
+		$result = $this->db->query($sql);
+		
+		return $result->result_array();
+	}
+	
+	public function get_promo_event_by_superuserid($superuserid){
+		$sql = 'select * from promoevents where superuserid=\''.$superuserid.'\'';
+		$result = $this->db->query($sql);
+		
+		return $result->result_array();
+	}
+	
+	public function delete_promo_event_by_promoeventid($pid){
+		$sql = 'delete from promoevents where promoeventid=\''.$pid.'\'';
+		$this->db->query($sql);
+		
+	}
+	
+	public function user_ratings_by_userid($userid){
+		$sql = 'select R.rating, U.unitid, U.unitname, U.categoryid, U.lat, U.lng, U.venueid, U.address
+ 				from ratings R, units U where R.unitid = U.unitid and R.userid = \''.$userid.'\' order by R.rating desc';
+		$result = $this->db->query($sql);
+		
+		return $result->result_array();
+	}
+	
 }
+
+

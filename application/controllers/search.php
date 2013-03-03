@@ -10,17 +10,28 @@ class Search extends CI_Controller {
 		$this->load->view('search-view');
 	}
 	
-	public function lists($i){
+	public function lists($i,$type){
 		//Lists venues trends
-		$c = 1;
 		$lat = $_COOKIE['lat'];
 		$lng = $_COOKIE['lng'];
 		
 		$this->load->model('foursquare_model');
+		$this->load->model('units_model');
 		
-		$res = $this->foursquare_model->get_venues($i,'',$lat,$lng);
-		$this->load->view('search_list_results-view', $res);
-
+		if($type == 'venues'){
+			$res = $this->foursquare_model->get_venues($i,'',$lat,$lng);
+			$this->load->view('search_list_results-view', $res);
+		}
+		if($type == 'promos'){
+			$c = '2';
+			$res['res'] = $this->units_model->get_promo_event($i,$c);
+			$this->load->view('search_list_results_pe-view', $res);
+		}
+		if($type == 'events'){
+			$c = '3';
+			$res['res'] = $this->units_model->get_promo_event($i,$c);
+			$this->load->view('search_list_results_pe-view', $res);
+		}
 	}
 	
 	public function custom_search() {

@@ -4,7 +4,13 @@
 
 	<div data-role="header">
 		<?php $this->load->view('navbar.php')?>
-		<?php $this->load->view('search_list_results_navbar.php')?>
+		<div data-role="navbar">
+		<ul>
+			<li><a href="venues" data-theme="d" data-mini="true">Venues</a></li>
+			<li><a href="promos" data-theme="d" data-mini="true">Promos</a></li>
+			<li><a href="events" data-theme="d" data-mini="true">Events</a></li>
+		</ul>
+	</div><!-- /navbar -->
     </div><!-- /header -->
     
 	<div data-role="content">
