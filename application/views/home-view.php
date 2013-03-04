@@ -19,13 +19,13 @@
 			</table>
 		</div>
 		<br/>
-		<p>Recommended for you</p>
+		<br/>
 		<br/>
 		<ul data-role="listview" data-theme="a">
-			<li data-icon="food" class="ui-btn-icon-left"><a href="#" style="padding-left: 80px"><h3>Location 1</h3><p>Address here</p></a></li>
-			<li data-icon="food" class="ui-btn-icon-left"><a href="#" style="padding-left: 80px"><h3>Location 2</h3><p>Address here</p></a></li>
-			<li data-icon="food" class="ui-btn-icon-left"><a href="#" style="padding-left: 80px"><h3>Location 3</h3><p>Address here</p></a></li>
+			<li data-role="divider" data-theme="b"><h4>Check these recommendations:</h4></li>
+			<li><?php print_r($res);?></li>	
 		</ul>
+			
 	</div>
 	
 

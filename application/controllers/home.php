@@ -20,7 +20,11 @@ class Home extends CI_Controller {
 		}else{
 			$data['superuser'] = 'false';
 		}
-			 
+		$userid = $this->session->userdata('userid');
+		$this->load->model('recommendations_model');
+		$data['res'] = $this->recommendations_model->predict_best($userid);
+		
+		
 		$this->load->view('home-view', $data);
 	}
 	

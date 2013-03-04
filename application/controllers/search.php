@@ -74,6 +74,11 @@ class Search extends CI_Controller {
 			}
 			$unitid = $result[0]['unitid'];
 			$this->units_model->insert_rating($rating,$unitid);
+			
+			//update unitpairs ratings table
+			$this->load->model('recommendations_model');
+			$userid = $this->session->userdata('userid');
+			$this->recommendations_model->update_recommendation_ratings($unitid,$userid);
 		}
 		
 		
