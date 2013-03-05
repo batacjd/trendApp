@@ -35,10 +35,10 @@
 		</center>
 	</div>
     </div><!-- /content -->
-    
+    <!--
     <div data-role="footer">
         <h4>(c) CS 199 trendApp. All rights reserved</h4>
-    </div><!-- /footer -->
+    </div> /footer -->
  
     
 </div><!-- /page -->
