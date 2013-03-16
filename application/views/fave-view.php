@@ -16,7 +16,7 @@
 				echo '<li data-icon="'.$r['categoryid'].'" class="ui-btn-icon-left"><a href="'.site_url('search/selected?name='.$r['unitname'].'&lat='.$r['lat'].'&lng='.$r['lng'].'&distance=1000&address='.$r['address'].'&icon='.$r['categoryid'].'&id='.$r['venueid']).'" style="padding-left: 80px"><h3>'.$r['unitname'].'</h3><p>'.$r['address'].' || Rating: '.$r['rating'].'</p></a></li>';
 			}
     	}else{
-    		echo 'No listings here :(';
+    		echo '<li data-icon="false"><a href="'.site_url("search").'">You haven\'t rated anything yet.<br>Start rating now :)</a></li>';
     	}
     	
 	?>

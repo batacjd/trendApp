@@ -10,15 +10,15 @@
     	
     	<ul data-role="listview" data-theme="a">
 			<li data-role="divider" data-theme="b"><h4>Select category</h4></li>
-			<li><a href="search/lists/1/venues">Food and Restaurant</a></li>
-			<li><a href="search/lists/2/venues">Clothing and Fashion</a></li>
-			<li><a href="search/lists/3/venues">Beauty and Spas</a></li>
-			<li><a href="search/lists/4/venues">Arts and Entertainment</a></li>
-			<li><a href="search/lists/5/venues">Hotels and Resorts</a></li>
-			<li><a href="search/lists/6/venues">Nightlife</a></li>
-			<li><a href="search/lists/7/venues">Sports Centers</a></li>
-			<li><a href="search/lists/8/venues">Schools</a></li>
-			<li><a href="search/lists/9/venues">Health and Medical</a></li>
+			<li data-icon="false"><a href="search/lists/1/venues">Food and Restaurant</a></li>
+			<li data-icon="false"><a href="search/lists/2/venues">Clothing and Fashion</a></li>
+			<li data-icon="false"><a href="search/lists/3/venues">Beauty and Spas</a></li>
+			<li data-icon="false"><a href="search/lists/4/venues">Arts and Entertainment</a></li>
+			<li data-icon="false"><a href="search/lists/5/venues">Hotels and Resorts</a></li>
+			<li data-icon="false"><a href="search/lists/6/venues">Nightlife</a></li>
+			<li data-icon="false"><a href="search/lists/7/venues">Sports Centers</a></li>
+			<li data-icon="false"><a href="search/lists/8/venues">Schools</a></li>
+			<li data-icon="false"><a href="search/lists/9/venues">Health and Medical</a></li>
 			<li></li>
 			<li data-role="divider" data-theme="b"><h4>or search</h4></li>
 		</ul>

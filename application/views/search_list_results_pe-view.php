@@ -24,7 +24,7 @@
 				
 			}
     	}else{
-    		echo 'No entries matched your query :(';
+    		echo '<li data-icon="false">No items listed.</li>';
     	}
     	
 	?>

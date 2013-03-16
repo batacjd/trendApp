@@ -23,6 +23,7 @@
 		<br />
 		<!-- <div data-role="controlgroup" data-type="horizontal"> -->
 			<input type="submit" value="Login" data-theme="b"  data-mini="true">
+			<br>
 			<a href="<?php echo site_url('signup')?>" data-role="button" data-theme="c"  data-mini="true">New user? Sign up now!</a>
 		<!-- </div> -->
 		

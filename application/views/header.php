@@ -33,6 +33,7 @@
 		
 	.smallBtn { height: 18px; font-size: 10px; margin-top: -5px }
 	.smallBtn .ui-btn-inner { margin-top: -7px }
+	.halfbtn { width: 50% }
 
 	.ui-content { padding: 15px; font-size: .9em }
 	.ui-content h2 { margin-bottom: 0px }

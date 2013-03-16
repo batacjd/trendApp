@@ -40,13 +40,13 @@ class Recommendations_model extends CI_Model{
 	}
 	
 	function predict_best($userid){
-		$sql = 'select p.unit_x, sum(p.sum + p.count*r.rating)/sum(p.count) as average
+		$sql = 'select * from units u, (select p.unit_x, sum(p.sum + p.count*r.rating)/sum(p.count) as average
 		from ratings r, unitpairs p
 		where r.userid = \''.$userid.'\' and p.unit_x <> r.unitid and p.unit_y = r.unitid
-		group by p.unit_x order by average desc limit 5';
+		and exists ( select unitid from ratings where userid = \''.$userid.'\')
+		group by p.unit_x order by average desc) as list where u.unitid = list.unit_x';
 		$result = $this->db->query($sql);
 		return $result->result_array();
 	}
-	
 	
 }
