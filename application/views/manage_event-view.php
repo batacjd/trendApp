@@ -1,66 +1,81 @@
 <?php $this->load->view('header')?>
 
-<div data-role="page">
+<?php $this->load->view('navbar.php')?>
 
-	<div data-role="header">
-		<?php $this->load->view('navbar.php')?>
-    </div><!-- /header -->
-    
-    <div data-role="content">
-    <?php echo '<h2>'.$name.' (Event)</h2> '.$address?>
-    <hr />
-    <div>
-    	<form method="post" action="add_event" data-ajax="false">
-    	<br /><i>Enter event name</i><?php echo form_error('eventName') ?>
-    	<br /><input type="text" name="eventName" data-mini="true">
-    	<br /><i>Add event details:</i>
-    	<br /><input type="text" name="description" data-mini="true">
-    	<br /><i>Start date:</i>
-    	<div data-role="fieldcontain">
-					    <fieldset data-role="controlgroup" data-type="horizontal" >
-					        <select name="start-month" data-theme="a" data-mini="true">
-					            <option value="1">January</option>
-					            <!-- etc. -->
-					        </select>
-					        <select name="start-day" data-theme="a" data-mini="true">
-					            <option value="1">1</option>
-					            <!-- etc. -->
-					        </select>
-					        <select name="start-year" data-theme="a" data-mini="true">
-					            <option value="2013">2013</option>
-					            <!-- etc. -->
-					        </select>
-					        
-					    </fieldset>
+<div class="row content">
+	<div class="span6">
+	
+	    <?php echo '<h3>'.$name.' (Event)</h3><p class="lead"'.$address.'</p>'?>
+	    <hr />
+		
+		<div class="alert">
+			All fields are required. Make sure they are correct before submitting.
+		</div>
+		
+	    <form method="post" action="add_event" class="form-horizontal">
+	    	<div class="control-group">
+	    		<label class="control-label" for="eventName">Enter a promo name</label>
+	    		<div class="controls">
+	    			<input type="text" name="eventName" id="eventName" class="input-xlarge">
+	    		</div>
+	    	</div>
+	    	
+	    	<div class="control-group">
+	    		<label class="control-label" for="description">Add description and mechanics:</label>
+	    		<div class="controls">
+	    			<textarea rows="5" name="description" id="description" class="input-xlarge"></textarea>
+	    		</div>
+	    	</div>
+	    	
+	    	<div class="control-group">
+	    		<label class="control-label">Start date:</label>
+	    		<div class="controls">
+	    			<div class="btn-group">
+							<select name="start-month" class="span2 form-inline">
+						    	<option value="1">January</option>
+						            <!-- etc. -->
+						    </select>
+						    <select name="start-day" class="span1 form-inline">
+						        <option value="1">1</option>
+						            <!-- etc. -->
+						    </select>
+						    <select name="start-year" class="span1 form-inline">
+						        <option value="2013">2013</option>
+						            <!-- etc. -->
+						    </select>    
 					</div>
-    	<br /><i>End date:</i>
-    	<div data-role="fieldcontain">
-					    <fieldset data-role="controlgroup" data-type="horizontal" >
-					        <select name="end-month" data-theme="a" data-mini="true">
-					            <option value="1">January</option>
-					            <!-- etc. -->
-					        </select>
-					        <select name="end-day" data-theme="a" data-mini="true">
-					            <option value="1">1</option>
-					            <option value="2">2</option>
-					            <!-- etc. -->
-					        </select>
-					        <select name="end-year" data-theme="a" data-mini="true">
-					            <option value="2013">2013</option>
-					            <!-- etc. -->
-					        </select>
-					        
-					    </fieldset>
+				</div>
+			</div>
+			
+			<div class="control-group">
+	    		<label class="control-label">End date:</label>
+	    		<div class="controls">
+	    			<div class="btn-group">
+							<select name="end-month" class="span2 form-inline">
+						    	<option value="1">January</option>
+						            <!-- etc. -->
+						    </select>
+						    <select name="end-day" class="span1 form-inline">
+						        <option value="1">1</option>
+						            <!-- etc. -->
+						    </select>
+						    <select name="end-year" class="span1 form-inline">
+						        <option value="2013">2013</option>
+						            <!-- etc. -->
+						    </select>    
 					</div>
-			<input type="text" value="<?php echo $name?>" name="unitname" id="mUnitname_e">
-			<input type="text" value="<?php echo $address?>" name="address" id="mAddress_e">
-			<input type="text" value="<?php echo $unitid?>" name="unitid" id="mUnitid_e">
-			<input type="submit" value="Submit">
-		</form>
-    </div>
-    
-    </div>
-    
+				</div>
+			</div>
+
+				<input type="text" value="<?php echo $name?>" name="unitname" id="mUnitname">
+				<input type="text" value="<?php echo $address?>" name="address" id="mAddress">
+				<input type="text" value="<?php echo $unitid?>" name="unitid" id="mUnitid">
+				<div class="controls"><input type="submit" value="Add this event" class="btn btn-danger"></div>
+			</form>
+			
+	</div>
 </div>
+    
+
 
 <?php $this->load->view('footer')?>

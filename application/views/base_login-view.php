@@ -1,47 +1,71 @@
 <?php $this->load->view('header')?>
 
-<div data-role="page">
- 
-    <div data-role="header">
-        <h1>trendApp</h1>
-    </div><!-- /header -->
+<style>
+body {
+        background-image: url('/trendApp2/Images/bg.png');
+      }
+
+	.form-signin {
+		padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	}
+	.form-signin .form-signin-heading,
+	.form-signin input[type="text"],
+	.form-signin input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+	}
+	.imgzr {
+		width: 80%;
+		height: auto;
+		max-width: 400px;
+	}
 	
-    <div data-role="content">
-    <div class="ctrDiv">
-    <form method="post" action="<?php echo site_url('base_login/do_login') ?>" data-ajax="false"> <!--  -->
+	#welcome_msg { padding: 19px 39px 39px; }
+	#welcome_msg p, h1 { color: #ffffff }
+	
+
+</style>
+
+<div class="row">
+	<br>
+	<div class="span8" id="welcome_msg">
+		<h1>trendApp</h1>
+		<p class="lead">Check out the latest trends and find them around you. This is the only tool to see what's in.</p>
+		<center><img src="/trendApp2/images/poweredByFoursquare_white.png" class="imgzr" /></center>
+	</div>
+	
+    <div class="span4">
+    <form class="form-signin" method="post" action="<?php echo site_url('base_login/do_login') ?>" data-ajax="false"> <!--  -->
     <?php //echo form_open('base_login/do_login'); ?>
-        <p align="center">Welcome to <b>trendApp</b>!</p>
-        
-        <label for="basic">Username:</label>
-		<input type="text" data-mini="true" name="username" value="<?php echo set_value('username'); ?>"/>
-		<label for="basic">Password:</label>
-		<input type="password" data-mini="true" name="password" value="<?php echo set_value('password'); ?>"/>
-		<center>
+        <h3>Sign in</h3>
+		<input type="text" name="username" value="<?php echo set_value('username'); ?>" class="input-block-level" placeholder="Username"/>
+		<input type="password" name="password" value="<?php echo set_value('password'); ?>" class="input-block-level" placeholder="Password"/>
 		<?php echo form_error('username'); ?>
 		<?php echo form_error('password'); ?>
-		</center>
 		<br />
-		<!-- <div data-role="controlgroup" data-type="horizontal"> -->
-			<input type="submit" value="Login" data-theme="b"  data-mini="true">
-			<br>
-			<a href="<?php echo site_url('signup')?>" data-role="button" data-theme="c"  data-mini="true">New user? Sign up now!</a>
+		<center>
+		<input type="submit" value="Login" class="btn btn-block btn-primary">
+		<br>
+		<a href="<?php echo site_url('signup')?>" class="btn btn-block btn-danger">New user? Sign up now!</a>
+		</center>
 		<!-- </div> -->
 		
 		<br/>
 		<br/>
-	</form><!-- end form -->
-		<center><a href="#">Learn more about trendApp</a>
-		<br /><br /><br />
-		<img src="/trendApp/images/poweredByFoursquare_gray.png" class="imgzr">
-		</center>
-	</div>
-    </div><!-- /content -->
-    <!--
-    <div data-role="footer">
-        <h4>(c) CS 199 trendApp. All rights reserved</h4>
-    </div> /footer -->
+	</form><!-- end form -->	
+    </div>
  
-    
-</div><!-- /page -->
+</div>
 
 <?php $this->load->view('footer')?>

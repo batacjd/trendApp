@@ -123,6 +123,22 @@ class Units_model extends CI_Model {
 		return $result->result_array();
 	}
 	
+	public function get_promo_by_unitid($unitid){
+		$sql = 'select u.unitname, u.unitid, p.promoeventid, p.unittypeid, p.superuserid, p.startdate, p.enddate, p.mechanics, p.promoeventname 
+		from units u, promoevents p where u.unitid = p.unitid and p.unittypeid = 2 and p.unitid=\''.$unitid.'\'';
+		$result = $this->db->query($sql);
+		
+		return $result->result_array();
+	}
+	
+	public function get_event_by_unitid($unitid){
+		$sql = 'select u.unitname, u.unitid, p.promoeventid, p.unittypeid, p.superuserid, p.startdate, p.enddate, p.mechanics, p.promoeventname 
+		from units u, promoevents p where u.unitid = p.unitid and p.unittypeid = 3 and p.unitid=\''.$unitid.'\'';
+		$result = $this->db->query($sql);
+		
+		return $result->result_array();
+	}
+	
 	public function delete_promo_event_by_promoeventid($pid){
 		$sql = 'delete from promoevents where promoeventid=\''.$pid.'\'';
 		$this->db->query($sql);

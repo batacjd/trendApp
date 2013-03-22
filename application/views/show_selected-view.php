@@ -1,6 +1,6 @@
 <?php $this->load->view('header')?>
 
-<div data-role="page">
+<?php $this->load->view('navbar.php')?>
 <script>
 
 	function create_map()
@@ -27,32 +27,40 @@
 	}
 
 	jQuery(window).ready(function(){  
-	    jQuery('#showmap').click(create_map);  
+	    jQuery('#showmap').show(create_map);  
 	});
+
 </script>
-	<div data-role="header">
-		<?php $this->load->view('navbar.php')?>
-    </div><!-- /header -->
+<style>
+
+</style>
     
-    <div data-role="content">
-    	<div class="ui-bar ui-bar-b">
-	    <?php 
+<div class="row content">
+	<div class="span6">
+	    
+		<?php 
 	    	$distance = ($distance/1000);
-	    	echo '<h1>'.$name.'</h1>';
+	    	echo '<h3>'.$name;
 	    	if($this->session->userdata('isSuperuser')){
-	    		echo '<a href="#popupManage" data-rel="popup" data-mini="true" data-inline="true" data-theme="c" class="smallBtn">Manage</a>';
+	    		echo '
+	    			<div class="btn-group">
+	    				<a class="btn btn-danger btn-mini dropdown-toggle" data-toggle="dropdown" href="#">Manage<span class="caret"></span></a>
+	    				<ul class="dropdown-menu">
+							<li><a href="'.site_url('manage/promo?name='.$name.'&lat='.$lat.'&lng='.$lng.'&address='.$address.'&icon='.$icon.'&id='.$id).'">Add Promo</a></li>
+							<li><a href="'.site_url('manage/event?name='.$name.'&lat='.$lat.'&lng='.$lng.'&address='.$address.'&icon='.$icon.'&id='.$id).'">Add Event</a></li>
+						</ul>
+					</div>
+					
+					';
+	    	
 	    	}
+	    	echo '</h3>';
 	    	if($distance != '') echo '<p>Distance: '.$distance.' km</p>';
 	    	if($address != '') echo '<p>Address: '.$address.'</p>';
 	    ?>
 	    
-	    <div data-role="popup" id="popupManage">
-			<ul data-role="listview" data-theme="a">
-				<li><a href="<?php echo site_url('manage/promo?name='.$name.'&lat='.$lat.'&lng='.$lng.'&address='.$address.'&icon='.$icon.'&id='.$id)?>">Add Promo</a></li>
-				<li><a href="<?php echo site_url('manage/event?name='.$name.'&lat='.$lat.'&lng='.$lng.'&address='.$address.'&icon='.$icon.'&id='.$id)?>">Add Event</a></li>
+	    
 			
-			</ul>
-		</div>
 	    
 	    <p>Rating:
 	    <?php 
@@ -69,24 +77,84 @@
 		?></p>
 	    <!-- <div data-role="controlgroup" data-type="horizontal"> -->
 	    	
-		</div>
+		
 		
 		<input type="text" id="lat" value="<?php echo $lat;?>">
 		<input type="text" id="lng" value="<?php echo $lng;?>">
 		
 		<!-- <center><a href="#" id="showmap">Show map</a></center> -->
-		<div class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal" style="font-size: 0.5em; margin-left: auto; margin-right: auto; width: 100%;" data-type="horizontal" data-role="controlgroup">
-		    <a data-role="button" data-theme="a" data-mini="true" data-inline="true" id="showmap">Map</a>
-			<a data-role="button" data-theme="a" data-mini="true" data-inline="true" >Rate</a>
-		    <a href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=1'?>" data-role="button" data-theme="a" data-mini="true" data-inline="true" data-ajax="false">1</a>
-		    <a href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=2'?>" data-role="button" data-theme="a" data-mini="true" data-inline="true">2</a>
-		    <a href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=3'?>" data-role="button" data-theme="a" data-mini="true" data-inline="true">3</a>
-		    <a href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=4'?>" data-role="button" data-theme="a" data-mini="true" data-inline="true">4</a>
+		<div class="btn-toolbar">
+		<div class="btn-group">
+		    <a class="btn btn-small" id="showmap">Map</a>
+			<a class="btn btn-small">Rate</a>
+		    <a class="btn btn-small" href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=1'?>" >1</a>
+		    <a class="btn btn-small" href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=2'?>" >2</a>
+		    <a class="btn btn-small" href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=3'?>" >3</a>
+		    <a class="btn btn-small" href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=4'?>" >4</a>
+		</div>
 		</div>
 		<div id="select_result_map"></div>
+	
+	</div>
+	<br>
+	<div class="span6">
+		<p class="lead">So, what's happening here? :D</p>
+		<p>Check out their promos and events below!</p>
+		<hr>
+		<div class="tabbable">
 		
-    </div>
-    
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#promo" data-toggle="tab">Promos</a></li>
+				<li><a href="#event" data-toggle="tab">Events</a></li>
+			</ul>
+			
+			<div class="tab-content">
+				<div class="tab-pane active" id="promo">
+					<ul class="nav nav-tabs nav-stacked nav_results">
+						<?php 
+							    
+							if(count($promos) > 0 && $promos != ''){
+								
+								foreach($promos as $r){
+									
+									echo '<li>
+											<a href="'.site_url('promo_event/selected?pid='.$r['promoeventid']).'"><p>'.$r['promoeventname'].'</p><p>'.$r['unitname'].'</p></a>
+										</li>';
+								}
+								
+							}else{
+								echo '<div class="alert alert-warning">';
+						    	echo '<li data-icon="false">Sorry. No promos listed yet.</li>';
+						    	echo '</div>';
+							}
+						?>
+					</ul>
+				</div>
+				<div class="tab-pane" id="event">
+							<ul class="nav nav-tabs nav-stacked nav_results">
+							<?php 
+						    
+						    	if(count($events) > 0  && $events != ''){
+									foreach($events as $r){
+										echo '<li>
+												<a href="'.site_url('promo_event/selected?pid='.$r['promoeventid']).'"><p>'.$r['promoeventname'].'</p><p>'.$r['unitname'].'</p></a>
+											</li>';
+										
+									}
+						    	}else{
+						    		echo '<div class="alert alert-warning">';
+						    		echo '<li data-icon="false">Sorry. No events listed yet.</li>';
+						    		echo '</div>';
+						    	}
+						    	
+							?>
+						    </ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </div>
+
 
 <?php $this->load->view('footer')?>

@@ -15,8 +15,8 @@ class Promo_event extends CI_Controller {
 		$data['pname'] = $res[0]['promoeventname'];
 		$data['unitname'] = $res[0]['unitname'];
 		$data['unitid'] = $res[0]['unitid'];
-		$data['start'] = $res[0]['start'];
-		$data['end'] = $res[0]['end'];
+		$data['start'] = $res[0]['startdate'];
+		$data['end'] = $res[0]['enddate'];
 		$data['mechanics'] = $res[0]['mechanics'];
 		$data['address'] = $res[0]['address'];
 		$data['lat'] = $res[0]['lat'];

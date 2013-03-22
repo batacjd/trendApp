@@ -6,118 +6,117 @@
 
 /* info button override */
 
-.ui-icon-10 {
+.icon-10 {
 	background: url("/trendApp/Images/Glyphish Pro/icons2/10.png"); 
 	background-size: 50px 50px;
     width: 50px;
     height: 50px;
-    margin-top: -25px !important;
+    margin: 2px 10px 0px 10px;
     box-shadow: none;
     -webkit-box-shadow: none;
     border-radius: 1px;
 }
 
-.ui-icon-1 {
+.icon-1 {
 	background: url("/trendApp/Images/Glyphish Pro/icons2/1.png"); 
 	background-size: 50px 50px;
     width: 50px;
     height: 50px;
-    margin-top: -20px !important;
-    margin-left: 5px;
+    margin: 2px 10px 0px 10px;
     box-shadow: none;
     -webkit-box-shadow: none;
     border-radius: 1px;
 }
 
-.ui-icon-2 {
+.icon-2 {
 	background: url("/trendApp/Images/Glyphish Pro/icons2/2.png"); 
 	background-size: 50px 50px;
     width: 50px;
     height: 50px;
-    margin-top: -25px !important;
+    margin: 2px 10px 0px 10px;
     box-shadow: none;
     -webkit-box-shadow: none;
     border-radius: 1px;
 }
 
-.ui-icon-3 {
+.icon-3 {
 	background: url("/trendApp/Images/Glyphish Pro/icons2/3.png"); 
 	background-size: 50px 50px;
     width: 50px;
     height: 50px;
-    margin-top: -25px !important;
+    margin: 2px 10px 0px 10px;
     box-shadow: none;
     -webkit-box-shadow: none;
     border-radius: 1px;
 }
 
-.ui-icon-6 {
+.icon-6 {
 	background: url("/trendApp/Images/Glyphish Pro/icons2/6.png"); 
 	background-size: 50px 50px;
     width: 50px;
     height: 50px;
-    margin-top: -25px !important;
+    margin: 2px 10px 0px 10px;
     box-shadow: none;
     -webkit-box-shadow: none;
     border-radius: 1px;
 }
 
-.ui-icon-5 {
+.icon-5 {
 	background: url("/trendApp/Images/Glyphish Pro/icons2/5.png"); 
 	background-size: 50px 50px;
     width: 50px;
     height: 50px;
-    margin-top: -25px !important;
+    margin: 2px 10px 0px 10px;
     box-shadow: none;
     -webkit-box-shadow: none;
     border-radius: 1px;
 }
 
-.ui-icon-4 {
+.icon-4 {
 	background: url("/trendApp/Images/Glyphish Pro/icons2/4.png"); 
 	background-size: 50px 50px;
     width: 50px;
     height: 50px;
-    margin-top: -25px !important;
+    margin: 2px 10px 0px 10px;
     box-shadow: none;
     -webkit-box-shadow: none;
     border-radius: 1px;
 }
 
-.ui-icon-7 {
+.icon-7 {
 	background: url("/trendApp/Images/Glyphish Pro/icons2/7.png"); 
 	background-size: 50px 50px;
     width: 50px;
     height: 50px;
-    margin-top: -25px !important;
+    margin: 2px 10px 0px 10px;
     box-shadow: none;
     -webkit-box-shadow: none;
     border-radius: 1px;
 }
 
-.ui-icon-8 {
+.icon-8 {
 	background: url("/trendApp/Images/Glyphish Pro/icons2/8.png"); 
 	background-size: 50px 50px;
     width: 50px;
     height: 50px;
-    margin-top: -25px !important;
+    margin: 2px 10px 0px 10px;
     box-shadow: none;
     -webkit-box-shadow: none;
     border-radius: 1px;
 }
 
-.ui-icon-9 {
+.icon-9 {
 	background: url("/trendApp/Images/Glyphish Pro/icons2/9.png"); 
 	background-size: 50px 50px;
     width: 50px;
     height: 50px;
-    margin-top: -25px !important;
+    margin: 2px 10px 0px 10px;
     box-shadow: none;
     -webkit-box-shadow: none;
     border-radius: 1px;
 }
 
-.ui-icon-homesmallw {
+.icon-homesmallw {
 	background: url("/trendApp/Images/Glyphish Pro/icons/53-house@2x-w.png"); 
 	background-size: 25px 25px;
     width: 25px;
@@ -128,7 +127,7 @@
     border-radius: 1px;
 }
 
-.ui-icon-starlargew {
+.icon-starlargew {
 	background: url("/trendApp/Images/Glyphish Pro/icons/28-star@2x-w.png"); 
 	background-size: 25px 25px;
     width: 25px;
@@ -139,7 +138,7 @@
     border-radius: 1px;
 }
 
-.ui-icon-magnilargew {
+.icon-magnilargew {
 	background: url("/trendApp/Images/Glyphish Pro/icons/06-magnify@2x-w.png"); 
 	background-size: 25px 25px;
     width: 25px;
@@ -150,7 +149,7 @@
     border-radius: 1px;
 }
 
-.ui-icon-chartlargew {
+.icon-chartlargew {
 	background: url("/trendApp/Images/Glyphish Pro/icons/16-line-chart@2x-w.png"); 
 	background-size: 25px 25px;
     width: 25px;

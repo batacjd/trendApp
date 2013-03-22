@@ -1,43 +1,40 @@
 <?php $this->load->view('header')?>
 
-<div data-role="page">
+<?php $this->load->view('navbar.php')?>
 
-	<div data-role="header">
-		<?php $this->load->view('navbar.php')?>
-    </div><!-- /header -->
-    
-    <div data-role="content" >
-    	
-    	<ul data-role="listview" data-theme="a">
-			<li data-role="divider" data-theme="b"><h4>Select category</h4></li>
-			<li data-icon="false"><a href="search/lists/1/venues">Food and Restaurant</a></li>
-			<li data-icon="false"><a href="search/lists/2/venues">Clothing and Fashion</a></li>
-			<li data-icon="false"><a href="search/lists/3/venues">Beauty and Spas</a></li>
-			<li data-icon="false"><a href="search/lists/4/venues">Arts and Entertainment</a></li>
-			<li data-icon="false"><a href="search/lists/5/venues">Hotels and Resorts</a></li>
-			<li data-icon="false"><a href="search/lists/6/venues">Nightlife</a></li>
-			<li data-icon="false"><a href="search/lists/7/venues">Sports Centers</a></li>
-			<li data-icon="false"><a href="search/lists/8/venues">Schools</a></li>
-			<li data-icon="false"><a href="search/lists/9/venues">Health and Medical</a></li>
-			<li></li>
-			<li data-role="divider" data-theme="b"><h4>or search</h4></li>
+<div class="row content">
+	<div class="span6 fixed" >
+		<h3>Search</h3>
+		<p class="lead">Find what you're looking for.</p>
+		<p>We have listed a few categories to make it easier for you to check the venues, promos, or events.</p>
+		<p>The categories might not be enough. So if you are looking for something more specific, you can just search for them.</p>
+	</div>
+	<br>
+    <div class="span6 offset6">
+    	<ul class="nav nav-tabs nav-stacked nav_results">
+			<li><h4>Select category</h4></li>
+			<li><a href="search/lists/1">Food and Restaurant</a></li>
+			<li><a href="search/lists/2">Clothing and Fashion</a></li>
+			<li><a href="search/lists/3">Beauty and Spas</a></li>
+			<li><a href="search/lists/4">Arts and Entertainment</a></li>
+			<li><a href="search/lists/5">Hotels and Resorts</a></li>
+			<li><a href="search/lists/6">Nightlife</a></li>
+			<li><a href="search/lists/7">Sports Centers</a></li>
+			<li><a href="search/lists/8">Schools</a></li>
+			<li><a href="search/lists/9">Health and Medical</a></li>
+
 		</ul>
-		<br/>
-		<form method="post" action="search/custom_search" data-ajax="false">
-		<table width="100%">
-		<col width="90%">
-		<col width="10%">
-			<tr>
-				<td><input type="text" name="search" /></td>
-				<td><center><input type="submit" data-icon="search" data-iconpos="notext" data-theme="b"></center></td>
-			</tr>
-		</table>
+		<h4>or search</h4>
+		<form method="post" action="search/custom_search" class="form-search">
+		<div class="input-append">
+			<input type="text" name="search" class="input-large search-query"/>
+			<input type="submit" value="Search" class="btn">
+		</div>
 		</form>
 		<br/>
 		<br/>
     
     </div>
-
 
 </div>
     

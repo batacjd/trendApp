@@ -10,7 +10,7 @@ class Search extends CI_Controller {
 		$this->load->view('search-view');
 	}
 	
-	public function lists($i,$type){
+	public function lists($i){
 		//Lists venues trends
 		$lat = $_COOKIE['lat'];
 		$lng = $_COOKIE['lng'];
@@ -18,20 +18,14 @@ class Search extends CI_Controller {
 		$this->load->model('foursquare_model');
 		$this->load->model('units_model');
 		
-		if($type == 'venues'){
-			$res = $this->foursquare_model->get_venues($i,'',$lat,$lng);
-			$this->load->view('search_list_results-view', $res);
-		}
-		if($type == 'promos'){
-			$c = '2';
-			$res['res'] = $this->units_model->get_promo_event($i,$c);
-			$this->load->view('search_list_results_pe-view', $res);
-		}
-		if($type == 'events'){
-			$c = '3';
-			$res['res'] = $this->units_model->get_promo_event($i,$c);
-			$this->load->view('search_list_results_pe-view', $res);
-		}
+		
+		$res = $this->foursquare_model->get_venues($i,'',$lat,$lng);
+		$c = '2';
+		$data['promos'] = $this->units_model->get_promo_event($i,$c);
+		$c = '3';
+		$data['events'] = $this->units_model->get_promo_event($i,$c);
+		
+		$this->load->view('search_list_results-view', array_merge($res,$data));
 	}
 	
 	public function custom_search() {
@@ -62,6 +56,8 @@ class Search extends CI_Controller {
 		$data['id'] = $this->input->get('id');
 		$rating = $this->input->get('rating');
 		
+		$result = $this->units_model->get_unitid_by_venueid($data['id']);
+		
 		if ($rating != ''){
 			$result = $this->units_model->get_unitid_by_venueid($data['id']);
 			//User has rated. Add to ratings table. Check if unit exists first.
@@ -81,6 +77,15 @@ class Search extends CI_Controller {
 			$this->recommendations_model->update_recommendation_ratings($unitid,$userid);
 		}
 		
+		if(count($result) > 0){
+			//Unit exists. Get promos and events
+			$unitid = $result[0]['unitid'];
+			$data['promos'] = $this->units_model->get_promo_by_unitid($unitid);
+			$data['events'] = $this->units_model->get_event_by_unitid($unitid);
+		}else{
+			$data['promos'] = '';
+			$data['events'] = '';
+		}
 		
 		$data['rating'] = $this->units_model->get_unit_rating_by_venueid($data['id']);
 		

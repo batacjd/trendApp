@@ -1,17 +1,13 @@
 <?php $this->load->view('header')?>
 
-<div data-role="page">
+<?php $this->load->view('navbar.php')?>
 
-	<div data-role="header">
-		<?php $this->load->view('navbar.php')?>
-    </div><!-- /header -->
-    
-    <div data-role="content">
-    
-    Your event has been recorded!
-    
+<div class="row content">
+    <div class="span6">
+    	<div class="alert alert-success">
+    		<h3>Your event has been recorded!</h3>
+    	</div>
     </div>
-    
 </div>
 
 <?php $this->load->view('footer')?>

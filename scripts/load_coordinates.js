@@ -59,7 +59,7 @@
 			
         }
     	
-        $('[data-role=page]').live('pageshow', function (event, ui) {
+        $(document).ready( function () {
 			initiate_geolocation();
 		});
         

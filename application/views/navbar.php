@@ -1,26 +1,28 @@
 
-
-<a href="<?php //redirect(current_url())?>" data-role="button" data-theme="b" data-icon="refresh" data-iconpos="notext" >Refresh</a>
-<h2>trendApp</h2>
-<a href="#popupBasic" data-role="button" data-rel="popup" data-theme="b" data-icon="gear" data-iconpos="notext" >Account</a>
-
-<div data-role="popup" id="popupBasic">
-	<ul data-role="listview" data-theme="a">
-		<li data-role="divider" data-theme="b">Account</li>
-		<li data-icon="false"><a href="<?php echo site_url('logout')?>">Logout</a></li>
-	
-	</ul>
-</div>
-
-<div data-role="navbar">
-	<ul>
-		<li><a href="<?php echo site_url("home")?>" data-theme="d" data-icon="homesmallw" data-mini="true">&nbsp;</a></li>
-		<li><a href="<?php echo site_url("favorites")?>" data-theme="d" data-icon="starlargew" data-mini="true">&nbsp;</a></li>
-		<li><a href="<?php echo site_url("search")?>" data-theme="d" data-icon="magnilargew" data-mini="true">&nbsp;</a></li>
-		<?php 
-		if($this->session->userdata('isSuperuser')){
-			echo '<li><a href="'.site_url("manage/show_list").'" data-theme="d" data-icon="chartlargew">&nbsp;</a></li>';
-		}
-		?>
-	</ul>
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<div>
+				<a class="brand" href="#">trendApp</a>
+			</div>
+			<div class="nav_right">
+				<ul class="nav">
+					<li><a href="<?php echo site_url('logout')?>">Logout</a></li>
+				</ul>
+			</div>
+			<div class="nav_center">
+				<ul class="nav">
+					<li><a href="<?php echo site_url("home")?>"><i class="icon-home icon-white"></i> Home</a></li>
+					<li><a href="<?php echo site_url("favorites")?>"><i class="icon-star icon-white"></i> Rated</a></li>
+					<li><a href="<?php echo site_url("search")?>"><i class="icon-search icon-white"></i> Search</a></li>
+					<?php 
+					if($this->session->userdata('isSuperuser')){
+						echo '<li><a href="'.site_url("manage/show_list").'" data-theme="d" data-icon="chartlargew"><i class="icon-th-list icon-white"></i> Manage</a></li>';
+					}
+					?>
+				</ul>
+			</div>
+			
+		</div>
+	</div>
 </div><!-- /navbar -->

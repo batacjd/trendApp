@@ -139,7 +139,7 @@ class Manage extends CI_Controller {
 		
 		$this->load->library('form_validation');
 		
-		$this->form_validation->set_rules('eventName','Promo name','trim|required');
+		$this->form_validation->set_rules('eventName','Event name','trim|required');
 		
 		if ($this->form_validation->run() == FALSE) {
 			$unitid = $this->input->post('unitid');

@@ -13,7 +13,7 @@ class Foursquare_model extends CI_Model {
 		
 		$curlhandle = curl_init();
 		curl_setopt($curlhandle, CURLOPT_URL, $url);
-		//curl_setopt($curlhandle, CURLOPT_PROXY, "superproxy.upd.edu.ph:8080");
+		curl_setopt($curlhandle, CURLOPT_PROXY, "superproxy.upd.edu.ph:8080");
 		curl_setopt($curlhandle, CURLOPT_SSL_VERIFYHOST, 0);
 		curl_setopt($curlhandle, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt($curlhandle, CURLOPT_RETURNTRANSFER, TRUE);

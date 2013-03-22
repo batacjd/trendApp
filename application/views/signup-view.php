@@ -1,22 +1,44 @@
 <?php $this->load->view('header')?>
+<style>
 
-<div data-role="page" >
- 
-    <div data-role="header">
-    	<a href="index.html" data-role="button" data-theme="b" data-icon="arrow-l" data-rel="back" data-iconpos="notext" >Delete</a>
-        <h1>trendApp - Sign up</h1>
-    </div><!-- /header -->
+	.form-signup {
+		padding: 19px 29px 29px;
+        margin: 0px auto 20px;
+        background-color: #fff;
+        border: 1px solid #aaa;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	}
 	
-	
-    <div data-role="content">
-    	<form method="post" action="<?php echo site_url('signup/register') ?>">
+	.mini_head {
+		padding: 19px 29px 29px;
+		color: #ffffff
+	}
+
+</style>
+
+<div class="row">
+	<br>
+	<div class="span4">
+	<div class="mini_head">
+		<h1>Signup</h1>
+		<p class="lead">Join now. Don't worry, it's free.</p>
+	</div>
+	</div>
+
+    <div class="span8">
+    	<form class="form-signup" method="post" action="<?php echo site_url('signup/register') ?>">
 		    <table width="100%">
 		    <col width="25%">
 		  	<col width="75&">
 		    <tr><p>Account Details:</p></tr>
 		    <tr>
 		    	<td>Username:</td>
-				<td><input type="text" name="username" value="<?php echo set_value('username'); ?>" /></td>
+				<td><input type="text" name="username" class="input-xlarge" value="<?php echo set_value('username'); ?>" /></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -24,7 +46,7 @@
 			</tr>
 			<tr>
 		    	<td>Password:</td>
-				<td><input type="password" name="password" value="<?php echo set_value('password'); ?>" /></td>
+				<td><input type="password" name="password" class="input-xlarge" value="<?php echo set_value('password'); ?>" /></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -32,7 +54,7 @@
 			</tr>
 			<tr>
 		    	<td>Confirm Password:</td>
-				<td><input type="password" name="c_password" value="<?php echo set_value('c_password'); ?>" /></td>
+				<td><input type="password" name="c_password" class="input-xlarge" value="<?php echo set_value('c_password'); ?>" /></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -40,7 +62,7 @@
 			</tr>
 			<tr>
 		    	<td>Email:</td>
-				<td><input type="text" name="email" value="<?php echo set_value('email'); ?>" /></td>
+				<td><input type="text" name="email" class="input-xlarge" value="<?php echo set_value('email'); ?>" /></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -54,7 +76,7 @@
 		  	<tr><p>Personal Information</p></tr>
 		  	<tr>
 		    	<td>Given name:</td>
-				<td><input type="text" name="givenname" value="<?php echo set_value('givenname'); ?>" /></td>
+				<td><input type="text" name="givenname" class="input-xlarge" value="<?php echo set_value('givenname'); ?>" /></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -62,46 +84,19 @@
 			</tr>
 			<tr>
 		    	<td>Last name:</td>
-				<td><input type="text" name="lastname" value="<?php echo set_value('lastname'); ?>" /></td>
+				<td><input type="text" name="lastname" class="input-xlarge" value="<?php echo set_value('lastname'); ?>" /></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td><?php echo form_error('lastname'); ?></td>
 			</tr>
 			<tr>
-				<td>Birthdate:</td>
-				<td>
-					<div data-role="fieldcontain">
-					    <fieldset data-role="controlgroup" data-type="horizontal" >
-					        <select name="select-choice-month" data-theme="a">
-					            <option value="1">January</option>
-					            <!-- etc. -->
-					        </select>
-					        <select name="select-choice-day" data-theme="a">
-					            <option value="1">1</option>
-					            <!-- etc. -->
-					        </select>
-					        <select name="select-choice-year" data-theme="a">
-					            <option value="2011">2011</option>
-					            <!-- etc. -->
-					        </select>
-					        
-					    </fieldset>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><?php //echo form_error('select-choice-month'); ?></td>
-			</tr>
-		    </table>
-		    
-		    <input type="submit" value="Submit" data-theme="c">
+		    	<td></td>
+		    	<td><input type="submit" class="btn btn-primary" value="Create my account" ></td>
+		    </tr>
     	</form>
-    </div><!-- end content -->
+    </div>
     
-
-
-</div><!-- end page -->
+</div>
 
 <?php $this->load->view('footer')?>

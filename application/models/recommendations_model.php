@@ -24,7 +24,8 @@ class Recommendations_model extends CI_Model{
 			
 			//if pair is in table, update 2 rows (x,y) (y,x)
 			$sql2 = 'select unit_x from unitpairs
-						where unit_x = \''.$unitid.'\' and unit_y = \''.$other_unit.'\'';
+						where (unit_x = \''.$unitid.'\' and unit_y = \''.$other_unit.'\')
+						or (unit_y = \''.$unitid.'\' and unit_x = \''.$other_unit.'\')';
 			$result2 = $this->db->query($sql2);
 			if( count($result2->result_array()) > 0){
 				$sql3 = 'update unitpairs set count = count+1,
@@ -41,12 +42,23 @@ class Recommendations_model extends CI_Model{
 	
 	function predict_best($userid){
 		$sql = 'select * from units u, (select p.unit_x, sum(p.sum + p.count*r.rating)/sum(p.count) as average
-		from ratings r, unitpairs p
-		where r.userid = \''.$userid.'\' and p.unit_x <> r.unitid and p.unit_y = r.unitid
-		and exists ( select unitid from ratings where userid = \''.$userid.'\')
-		group by p.unit_x order by average desc) as list where u.unitid = list.unit_x';
+				from ratings r, unitpairs p
+				where r.userid = \''.$userid.'\' and p.unit_x <> r.unitid and p.unit_y = r.unitid
+				and exists ( select unitid from ratings where userid = \''.$userid.'\')
+				group by p.unit_x order by average desc) as list where u.unitid = list.unit_x';
 		$result = $this->db->query($sql);
 		return $result->result_array();
+	}
+	
+	function predict_by_unitid($unitid){
+		$sql = 'select unit_y, (sum/count) as average
+				from unitpairs
+				where unit_x = \''.$unitid.'\' and count > 2
+				order by (sum/count) desc
+				limit 10';
+		$result = $this->db->query($sql);
+		return $result->result_array();
+		
 	}
 	
 }
