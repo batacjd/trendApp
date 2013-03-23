@@ -6,14 +6,14 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="/trendApp2/scripts/jquery-1.9.1.min.js"></script>
-<script src="/trendApp2/scripts/bootstrap/js/bootstrap.js"></script>
-<link href="/trendApp2/scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="/trendApp2/scripts/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"  />
+<script src="/trendApp/scripts/jquery-1.9.1.min.js"></script>
+<script src="/trendApp/scripts/bootstrap/js/bootstrap.js"></script>
+<link href="/trendApp/scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="/trendApp/scripts/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"  />
 
 
 <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-<script src="/trendApp2/scripts/load_coordinates.js"></script>
+<script src="/trendApp/scripts/load_coordinates.js"></script>
 <link rel="stylesheet" href="/trendApp2/scripts/css/icons.css" />
 
 
@@ -88,12 +88,24 @@
 	    background-color: #fff;
 	}
 	
+	.content_next {
+		padding-left: 40px;
+		margin-left: 20px;
+	    background-color: #fff;
+	}
+	
 	@media (max-width: 767px) {
 	    .fixed {
 	        position:static;
 	        width:auto;
 	    }
 	    .content {
+			padding: 5px;
+			margin: 0;
+		    background-color: #fff;
+		}
+		
+		.content_next {
 			padding: 5px;
 			margin: 0;
 		    background-color: #fff;

@@ -45,6 +45,7 @@ class Search extends CI_Controller {
 	public function selected() {
 		
 		$this->load->model('units_model');
+		$this->load->model('recommendations_model');
 		
 		//Get information of venues by passing through URL variables
 		$data['name'] = $this->input->get('name');
@@ -72,7 +73,6 @@ class Search extends CI_Controller {
 			$this->units_model->insert_rating($rating,$unitid);
 			
 			//update unitpairs ratings table
-			$this->load->model('recommendations_model');
 			$userid = $this->session->userdata('userid');
 			$this->recommendations_model->update_recommendation_ratings($unitid,$userid);
 		}
@@ -82,9 +82,11 @@ class Search extends CI_Controller {
 			$unitid = $result[0]['unitid'];
 			$data['promos'] = $this->units_model->get_promo_by_unitid($unitid);
 			$data['events'] = $this->units_model->get_event_by_unitid($unitid);
+			$data['recommendations'] = $this->recommendations_model->predict_by_unitid($unitid);
 		}else{
 			$data['promos'] = '';
 			$data['events'] = '';
+			$data['recommendations'] = '';
 		}
 		
 		$data['rating'] = $this->units_model->get_unit_rating_by_venueid($data['id']);

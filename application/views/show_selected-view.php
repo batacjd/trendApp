@@ -152,8 +152,21 @@
 				</div>
 			</div>
 		</div>
+		
+		<div class="tabbable">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#recommendations" data-toggle="tab">Recommendations</a></li>
+			</ul>
+		</div>
+	
 	</div>
 
+</div>
+
+<div class="row content_next">
+	<div class="span6">
+		<p>Comments (Coming soon)</p>
+	</div>
 </div>
 
 

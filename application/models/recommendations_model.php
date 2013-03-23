@@ -41,6 +41,7 @@ class Recommendations_model extends CI_Model{
 	}
 	
 	function predict_best($userid){
+		//Predicts recommendations per user
 		$sql = 'select * from units u, (select p.unit_x, sum(p.sum + p.count*r.rating)/sum(p.count) as average
 				from ratings r, unitpairs p
 				where r.userid = \''.$userid.'\' and p.unit_x <> r.unitid and p.unit_y = r.unitid
@@ -51,6 +52,7 @@ class Recommendations_model extends CI_Model{
 	}
 	
 	function predict_by_unitid($unitid){
+		//Predicts recommendations per unit
 		$sql = 'select unit_y, (sum/count) as average
 				from unitpairs
 				where unit_x = \''.$unitid.'\' and count > 2
