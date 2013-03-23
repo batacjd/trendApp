@@ -2,7 +2,7 @@
 
 <style>
 body {
-        background-image: url('/trendApp2/Images/bg.png');
+        background-image: url('/trendApp/Images/bg.png');
       }
 
 	.form-signin {
@@ -42,7 +42,7 @@ body {
 	<div class="span8" id="welcome_msg">
 		<h1>trendApp</h1>
 		<p class="lead">Check out the latest trends and find them around you. This is the only tool to see what's in.</p>
-		<center><img src="/trendApp2/images/poweredByFoursquare_white.png" class="imgzr" /></center>
+		<center><img src="/trendApp/images/poweredByFoursquare_white.png" class="imgzr" /></center>
 	</div>
 	
     <div class="span4">
