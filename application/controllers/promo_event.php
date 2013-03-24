@@ -24,6 +24,9 @@ class Promo_event extends CI_Controller {
 		$data['distance'] = 1000;
 		$data['icon'] = $res[0]['categoryid'];
 		$data['id'] = $res[0]['venueid'];
+		$data['picture'] = $res[0]['picture'];
+		$data['promoeventid'] = $promoeventid;
+		$data['superuserid'] = $res[0]['superuserid'];
 		
 		$this->load->view('show_selected_pe-view', $data);
 	}

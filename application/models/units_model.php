@@ -44,17 +44,15 @@ class Units_model extends CI_Model {
 	}
 	
 	public function insert_unit_promo_event($data){
-		//Insert promo and event to units table
-		$insertPE = array(
-			'promoeventname' => $data['name'],
-			'unitid' =>$data['unitid'],
-			'unittypeid' => $data['unittypeid'],
-			'superuserid' => $this->session->userdata('superuserid'),
-			'startdate' => $data['startdate'],
-			'enddate' => $data['enddate'],
-			'mechanics' => $data['mechanics']
-		);
-		$this->db->insert('promoevents', $insertPE);
+		//insert promo/events and return promoeventid
+		$sql = 'insert into promoevents (unitid,unittypeid,superuserid,startdate,enddate,mechanics,promoeventname)
+				values
+				(\''.$data['unitid'].'\',\''.$data['unittypeid'].'\',\''.$this->session->userdata('superuserid').'\',\''.$data['startdate'].'\',
+				\''.$data['enddate'].'\',\''.$data['mechanics'].'\',\''.$data['name'].'\')
+				returning promoeventid';
+		$result = $this->db->query($sql);
+		$res = $result->result_array();
+		return $res[0]['promoeventid'];
 	}
 	
 	public function get_ratings_by_unitid($unitid) {
@@ -151,6 +149,20 @@ class Units_model extends CI_Model {
 		$result = $this->db->query($sql);
 		
 		return $result->result_array();
+	}
+	
+	public function get_rating_by_userid_unitid($userid,$unitid){
+		$sql = 'select rating from ratings where userid = \''.$userid.'\' and unitid = \''.$unitid.'\'';
+		$result = $this->db->query($sql);
+		
+		return $result->result_array();
+	}
+	
+	public function insert_picture($filename,$promoeventid){
+		$sql = 'update promoevents set  picture = \''.$filename.'\'
+				where promoeventid = '.$promoeventid;
+		$this->db->query($sql);
+		
 	}
 	
 }

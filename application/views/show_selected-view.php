@@ -62,7 +62,7 @@
 	    
 			
 	    
-	    <p>Rating:
+	    <p>Average Rating:
 	    <?php 
 			if (count($rating) > 0){
 				if(count($rating[0]['rating']) != ''){
@@ -74,10 +74,7 @@
 			}else{
 				echo 'This has not been rated yet.';
 			}
-		?></p>
-	    <!-- <div data-role="controlgroup" data-type="horizontal"> -->
-	    	
-		
+		?></p>	
 		
 		<input type="text" id="lat" value="<?php echo $lat;?>">
 		<input type="text" id="lng" value="<?php echo $lng;?>">
@@ -87,10 +84,10 @@
 		<div class="btn-group">
 		    <a class="btn btn-small" id="showmap">Map</a>
 			<a class="btn btn-small">Rate</a>
-		    <a class="btn btn-small" href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=1'?>" >1</a>
-		    <a class="btn btn-small" href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=2'?>" >2</a>
-		    <a class="btn btn-small" href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=3'?>" >3</a>
-		    <a class="btn btn-small" href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=4'?>" >4</a>
+		    <a class="btn btn-small <?php if(count($userrating)> 0 && $userrating != '') { if($userrating[0]['rating'] == '1') echo 'disabled'; } ?>" href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=1'?>" >1</a>
+		    <a class="btn btn-small <?php if(count($userrating)> 0 && $userrating != '') { if($userrating[0]['rating'] == '2') echo 'disabled'; } ?>" href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=2'?>" >2</a>
+		    <a class="btn btn-small <?php if(count($userrating)> 0 && $userrating != '') { if($userrating[0]['rating'] == '3') echo 'disabled'; } ?>" href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=3'?>" >3</a>
+		    <a class="btn btn-small <?php if(count($userrating)> 0 && $userrating != '') { if($userrating[0]['rating'] == '4') echo 'disabled'; } ?>" href="<?php echo 'selected?name='.$name.'&lat='.$lat.'&lng='.$lng.'&distance='.$distance.'&address='.$address.'&icon='.$icon.'&id='.$id.'&rating=4'?>" >4</a>
 		</div>
 		</div>
 		<div id="select_result_map"></div>
@@ -98,7 +95,7 @@
 	</div>
 	<br>
 	<div class="span6">
-		<p class="lead">So, what's happening here? :D</p>
+		<p class="lead">So, what's happening here?</p>
 		<p>Check out their promos and events below!</p>
 		<hr>
 		<div class="tabbable">
@@ -153,20 +150,27 @@
 			</div>
 		</div>
 		
-		<div class="tabbable">
-			<ul class="nav nav-tabs">
-				<li class="active"><a href="#recommendations" data-toggle="tab">Recommendations</a></li>
-			</ul>
-		</div>
-	
+	 <div class="well well-small well_rec">
+	 	<p>Users who rated this also checked these places:</p>
+					<ul class="nav nav-tabs nav-stacked nav_results">
+						<?php 
+							if(count($recommendations) > 0 && $recommendations != ''){
+								foreach($recommendations as $r){
+									echo '	<li>
+												<i class="icon-'.$r['categoryid'].' pull-left"></i>
+												<a href="'.site_url('search/selected?name='.$r['unitname'].'&lat='.$r['lat'].'&lng='.$r['lng'].'&distance=1000&address='.$r['address'].'&icon='.$r['categoryid'].'&id='.$r['venueid']).'"><p>'.$r['unitname'].'</p><p>'.$r['address'].' || Rating: '.$r['rating'].'</p></a>
+											</li>';
+									
+								}
+						    }else{
+						    	
+						    	echo '<li><a>Sorry, no other recommendations yet.</a></li>';
+						    }
+						?>
+					</ul>
+	 </div>
 	</div>
 
-</div>
-
-<div class="row content_next">
-	<div class="span6">
-		<p>Comments (Coming soon)</p>
-	</div>
 </div>
 
 

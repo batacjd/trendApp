@@ -17,7 +17,7 @@
             {  
                 case error.PERMISSION_DENIED: alert("Please allow Geolocation on your browser to use this site.");  
                 break;  
-                case error.POSITION_UNAVAILABLE: alert("we could not detect your location. Please try again later.");  
+                case error.POSITION_UNAVAILABLE: alert("We could not detect your location. Please try again later.");  
                 break;  
                 case error.TIMEOUT: alert("Retrieving position timed out. Please refresh page or try again later.");  
                 break;  

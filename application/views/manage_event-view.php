@@ -17,6 +17,7 @@
 	    		<label class="control-label" for="eventName">Enter a promo name</label>
 	    		<div class="controls">
 	    			<input type="text" name="eventName" id="eventName" class="input-xlarge">
+	    			<?php echo $this->session->flashdata('validation_errors') ?>
 	    		</div>
 	    	</div>
 	    	
@@ -73,6 +74,20 @@
 				<div class="controls"><input type="submit" value="Add this event" class="btn btn-danger"></div>
 			</form>
 			
+	</div>
+	<br>
+	<div class="span6">
+		<div class="progress progress-striped active">
+	  		<div class="bar bar-success" style="width: 10%;"></div>
+		</div>
+		<div class="alert">
+			<h4>Step 1</h4>
+			Fill in the form with necessary details
+		</div>
+		<div class="alert alert-info">
+			<h4>Step 2</h4>
+			Upload a picture, poster, or publicity material
+		</div>
 	</div>
 </div>
     

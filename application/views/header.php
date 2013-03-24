@@ -8,13 +8,15 @@
 
 <script src="/trendApp/scripts/jquery-1.9.1.min.js"></script>
 <script src="/trendApp/scripts/bootstrap/js/bootstrap.js"></script>
+<script src="/trendApp/scripts/jquery.bootpag.js"></script>
 <link href="/trendApp/scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="/trendApp/scripts/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"  />
 
 
+
 <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script src="/trendApp/scripts/load_coordinates.js"></script>
-<link rel="stylesheet" href="/trendApp2/scripts/css/icons.css" />
+<link rel="stylesheet" href="/trendApp/scripts/css/icons.css" />
 
 
  
@@ -110,6 +112,10 @@
 			margin: 0;
 		    background-color: #fff;
 		}
+	}
+	
+	.well_rec ul{
+		background-color: #fff;
 	}
      
 </style>

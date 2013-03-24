@@ -53,11 +53,12 @@ class Recommendations_model extends CI_Model{
 	
 	function predict_by_unitid($unitid){
 		//Predicts recommendations per unit
-		$sql = 'select unit_y, (sum/count) as average
-				from unitpairs
-				where unit_x = \''.$unitid.'\' and count > 2
+		$sql = 'select p.unit_y, (p.sum/p.count) as average, u.unitname, u.categoryid, u.unittypeid, u.lat, u.lng, u.rating, u.venueid, u.address
+				from unitpairs p, units u
+				where u.unitid = p.unit_y
+				and unit_x = \''.$unitid.'\' and count > 2
 				order by (sum/count) desc
-				limit 10';
+				limit 5';
 		$result = $this->db->query($sql);
 		return $result->result_array();
 		

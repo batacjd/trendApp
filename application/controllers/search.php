@@ -60,7 +60,6 @@ class Search extends CI_Controller {
 		$result = $this->units_model->get_unitid_by_venueid($data['id']);
 		
 		if ($rating != ''){
-			$result = $this->units_model->get_unitid_by_venueid($data['id']);
 			//User has rated. Add to ratings table. Check if unit exists first.
 			
 			if(count($result) == 0){
@@ -83,10 +82,16 @@ class Search extends CI_Controller {
 			$data['promos'] = $this->units_model->get_promo_by_unitid($unitid);
 			$data['events'] = $this->units_model->get_event_by_unitid($unitid);
 			$data['recommendations'] = $this->recommendations_model->predict_by_unitid($unitid);
+				
+			//Get user's rating for the selected venue
+			$userid = $this->session->userdata('userid');
+			$data['userrating'] = $this->units_model->get_rating_by_userid_unitid($userid,$unitid);
+			
 		}else{
 			$data['promos'] = '';
 			$data['events'] = '';
 			$data['recommendations'] = '';
+			$data['userrating'] = '';
 		}
 		
 		$data['rating'] = $this->units_model->get_unit_rating_by_venueid($data['id']);

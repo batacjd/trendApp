@@ -71,6 +71,7 @@ class Manage extends CI_Controller {
 			$unitid = $this->input->post('unitid');
 			$unitname = $this->input->post('unitname');
 			$address = $this->input->post('address');
+			$this->session->set_flashdata('validation_errors', validation_errors());
 			redirect(site_url('manage/promo?unitid='.$unitid.'&name='.$unitname.'&address='.$address));
 		}else{
 			
@@ -80,7 +81,7 @@ class Manage extends CI_Controller {
 			
 			$startm = $this->input->post('start-month');
 			$startd = $this->input->post('start-day');
-			$starty = $this->input->post('start-yar');
+			$starty = $this->input->post('start-year');
 			$endm = $this->input->post('end-month');
 			$endd = $this->input->post('end-day');
 			$endy = $this->input->post('end-year');
@@ -90,10 +91,9 @@ class Manage extends CI_Controller {
 			$data['mechanics'] = $this->input->post('description');
 			
 			$this->load->model('units_model');
-			$this->units_model->insert_unit_promo_event($data);
+			$data['promoeventid'] = $this->units_model->insert_unit_promo_event($data);
 			
-			
-			$this->load->view('add_promo_ok-view');
+			$this->load->view('upload_picture-view.php',$data);
 			
 		}
 		
@@ -145,6 +145,7 @@ class Manage extends CI_Controller {
 			$unitid = $this->input->post('unitid');
 			$unitname = $this->input->post('unitname');
 			$address = $this->input->post('address');
+			$this->session->set_flashdata('validation_errors', validation_errors());
 			redirect(site_url('manage/event?unitid='.$unitid.'&name='.$unitname.'&address='.$address));
 		}else{
 			
@@ -164,10 +165,9 @@ class Manage extends CI_Controller {
 			$data['mechanics'] = $this->input->post('description');
 			
 			$this->load->model('units_model');
-			$this->units_model->insert_unit_promo_event($data);
+			$data['promoeventid'] = $this->units_model->insert_unit_promo_event($data);
 			
-			
-			$this->load->view('add_event_ok-view');
+			$this->load->view('upload_picture-view.php',$data);
 			
 		}
 		
